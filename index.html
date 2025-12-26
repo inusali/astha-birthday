@@ -2,53 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Astha 🎉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase CDN -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
+
 <body>
 
-<!-- 🔐 LOGIN SCREEN -->
-<div id="login">
-  <h1>🎁 Special Surprise</h1>
-  <input type="text" id="username" placeholder="Enter your name" />
-  <input type="password" id="password" placeholder="Enter password" />
+<!-- 🔐 LOGIN -->
+<div id="login" class="login">
+  <h2>🎂 Birthday Surprise 🎂</h2>
+  <input type="text" id="username" placeholder="Your name">
+  <input type="password" id="password" placeholder="Password">
   <button onclick="checkLogin()">Enter</button>
   <p id="error"></p>
 </div>
 
-<!-- 🎂 BIRTHDAY SCREEN -->
+<!-- 🎉 BIRTHDAY PAGE -->
 <div id="birthday" class="hidden">
 
   <button id="playBtn" onclick="playSong()">▶ Play Song</button>
 
   <h1>🎉 Happy Birthday</h1>
-  <h2>Astha Gupta 🎂</h2>
-  <p>From your best friend ❤️<br>— Inus Ali</p>
+  <h2 class="name">Astha Gupta 🎂</h2>
+  <p class="from">From your best friend ❤️ <br> — Inus Ali</p>
 
+  <!-- 📸 PHOTO -->
   <div class="photo">
-    <img src="img1.jpeg" />
+    <img src="img3.jpeg" alt="Astha">
   </div>
 
-  <p class="quote">Some people are special without trying ✨</p>
+  <!-- ✨ QUOTE -->
+  <p class="quote">
+    “Some people are special without trying ✨”
+  </p>
 
-  <!-- 💬 COMMENT BOX -->
+  <!-- 💬 COMMENTS -->
   <div class="comments">
-    <h3>💌 Leave a Message</h3>
-    <input type="text" id="cname" placeholder="Your name" />
+    <h3>💖 Leave a Message</h3>
+    <input id="cname" placeholder="Your name">
     <textarea id="cmsg" placeholder="Your message"></textarea>
-    <button onclick="sendComment()">Send</button>
+    <button onclick="addComment()">Send</button>
 
     <div id="commentList"></div>
   </div>
 
+  <audio id="song" src="song.mp3"></audio>
 </div>
-
-<audio id="song" src="song.mp3"></audio>
-
-<!-- 🔥 Firebase -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <script src="script.js"></script>
 </body>
