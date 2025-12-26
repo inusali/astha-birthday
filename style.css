@@ -182,3 +182,7 @@ body {
   to { opacity: 1; }
 }
 
+.wish {
+  white-space: pre-line;
+}
+
