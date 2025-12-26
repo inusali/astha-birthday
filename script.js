@@ -1,4 +1,4 @@
-// 🔥 Firebase Config (TUMHARA)
+// 🔥 Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyAKBBE95EbOD4QSNNSDZjUCWmF7JQFQP24",
   authDomain: "inus-9e7bd.firebaseapp.com",
@@ -12,7 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
-// 🔐 LOGIN
+/* LOGIN */
 function checkLogin() {
   const name = document.getElementById("username").value;
   const pass = document.getElementById("password").value;
@@ -21,24 +21,25 @@ function checkLogin() {
     localStorage.setItem("user", name);
     document.getElementById("login").style.display = "none";
     document.getElementById("birthday").classList.remove("hidden");
+    document.getElementById("cname").value = name;
   } else {
     document.getElementById("error").innerText = "Wrong password 😜";
   }
 }
 
-// 🎵 SONG
+/* SONG */
 function playSong() {
   document.getElementById("song").play();
 }
 
-// 💬 COMMENTS
+/* COMMENTS */
 function addComment() {
   const name = document.getElementById("cname").value;
   const msg = document.getElementById("cmsg").value;
 
   if (name && msg) {
     db.ref("comments").push({
-      name: name,
+      name,
       message: msg
     });
     document.getElementById("cmsg").value = "";
@@ -46,9 +47,9 @@ function addComment() {
 }
 
 db.ref("comments").on("child_added", snapshot => {
-  const data = snapshot.val();
+  const d = snapshot.val();
   const div = document.createElement("div");
   div.className = "comment";
-  div.innerHTML = `<b>${data.name}</b><br>${data.message}`;
+  div.innerHTML = `<b>${d.name}</b><br>${d.message}`;
   document.getElementById("commentList").appendChild(div);
 });
