@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Astha 🎉</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- MUSIC -->
-<div class="music">
-  <button id="playBtn">▶ Play Song</button>
-  <audio id="song" src="song.mp3"></audio>
+<!-- 🔐 LOGIN SCREEN -->
+<div id="login">
+  <h1>🎁 Special Surprise</h1>
+  <input type="text" id="username" placeholder="Enter your name" />
+  <input type="password" id="password" placeholder="Enter password" />
+  <button onclick="checkLogin()">Enter</button>
+  <p id="error"></p>
 </div>
 
-<h1>
-  🎉 Happy Birthday <br>
-  <span>Astha Gupta</span> 🎉
-</h1>
+<!-- 🎂 BIRTHDAY SCREEN -->
+<div id="birthday" class="hidden">
 
-<p class="from">
-  From your best friend ❤️ <br>
-  — Inus Ali
-</p>
+  <button id="playBtn" onclick="playSong()">▶ Play Song</button>
 
-<!-- SLIDER -->
-<div class="slider">
-  <img src="img1.jpeg">
-  <img src="img2.jpeg">
-  <img src="img3.jpeg">
-  <img src="img4.jpeg">
-  <img src="img5.jpeg">
+  <h1>🎉 Happy Birthday</h1>
+  <h2>Astha Gupta 🎂</h2>
+  <p>From your best friend ❤️<br>— Inus Ali</p>
+
+  <div class="photo">
+    <img src="img1.jpeg" />
+  </div>
+
+  <p class="quote">Some people are special without trying ✨</p>
+
+  <!-- 💬 COMMENT BOX -->
+  <div class="comments">
+    <h3>💌 Leave a Message</h3>
+    <input type="text" id="cname" placeholder="Your name" />
+    <textarea id="cmsg" placeholder="Your message"></textarea>
+    <button onclick="sendComment()">Send</button>
+
+    <div id="commentList"></div>
+  </div>
+
 </div>
 
-<!-- WISHES -->
-<div class="wishes">
-  <p>Some people are special without trying.<br>You are one of them ✨</p>
-  <p>May your days be filled with smiles,<br>love and endless happiness 💖</p>
-  <p>Stay happy, stay crazy,<br>and keep shining 🌸</p>
-  <p class="last">Happy Birthday 🎂</p>
-</div>
+<audio id="song" src="song.mp3"></audio>
+
+<!-- 🔥 Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <script src="script.js"></script>
 </body>
