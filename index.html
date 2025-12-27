@@ -3,76 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <title>Happy Birthday Astha 🎉</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Firebase -->
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
 
 <body>
 
-<!-- 🔐 LOGIN -->
-<div id="login" class="login">
-  <h2>🎂 Birthday Surprise 🎂</h2>
-  <input type="text" id="username" placeholder="Your name">
-  <input type="password" id="password" placeholder="Password">
-  <button onclick="checkLogin()">Enter</button>
-  <p id="error"></p>
-</div>
+  <!-- 🔐 LOGIN SCREEN -->
+  <div id="login" class="login-card">
+    <h2>🎂 Birthday Surprise</h2>
 
-<!-- 🎉 BIRTHDAY PAGE -->
-<div id="birthday" class="hidden">
+    <input type="text" id="username" placeholder="Your name">
+    <input type="password" id="password" placeholder="Password">
 
-  <button id="playBtn" onclick="playSong()">▶ Play Song</button>
-
-  <h1>🎉 Happy Birthday</h1>
-  <h2 class="name">Astha Gupta 🎂</h2>
-  <p class="from">From your best friend ❤️<br>— Inus Ali</p>
-
-  <!-- 📸 PHOTO SLIDER -->
-  <div class="slider">
-    <img src="img1.jpeg">
-    <img src="img2.jpeg">
-    <img src="img3.jpeg">
-    <img src="img4.jpeg">
-    <img src="img5.jpeg">
+    <button onclick="checkLogin()">Enter</button>
+    <p id="error" class="error"></p>
   </div>
 
-<p class="wish">
-  May your life be filled with endless smiles, success,<br>
-  and all the happiness your heart can hold. ✨<br><br>
+  <!-- 🎉 BIRTHDAY CONTENT -->
+  <div id="birthday" class="hidden">
 
-  You are not just special today,<br>
-  you are special every single day 💖<br>
-  May every dream you see with open eyes<br>
-  turn into reality very soon.<br><br>
+    <h1>🎉 Happy Birthday</h1>
+    <h2 class="name">Astha Gupta 🎂</h2>
+    <p class="from">From your best friend ❤️<br>— Inus Ali</p>
 
-  Keep shining, keep smiling,<br>
-  and never forget how amazing you truly are 🌸
-</p>
+    <!-- 📸 PHOTO CARD -->
+    <div class="photo-card">
+      <img src="img1.jpeg" alt="Astha">
+    </div>
 
-</div>
+    <!-- 💌 WISH TEXT -->
+    <p class="wish">
+May your life be filled with endless smiles, success,
+and all the happiness your heart can hold.
+
+You are not just special today,
+you are special every single day 💖
+May every dream you see with open eyes
+turn into reality very soon.
+
+Keep shining, keep smiling,
+and never forget how amazing you truly are 🌸
+    </p>
+
+    <!-- 🎵 SONG -->
+    <audio id="song" src="song.mp3"></audio>
+    <button class="play-btn" onclick="playSong()">▶ Play Song</button>
+
+  </div>
 
   <!-- 💬 COMMENTS -->
-  <div class="comments">
+  <div class="comments hidden" id="comments">
     <h3>💖 Leave a Message</h3>
-    <input id="cname" placeholder="Your name">
+
+    <input type="text" id="cname" placeholder="Your name">
     <textarea id="cmsg" placeholder="Your message"></textarea>
-    <button onclick="addComment()">Send</button>
+
+    <button onclick="sendComment()">Send</button>
 
     <div id="commentList"></div>
   </div>
 
-  <audio id="song" src="song.mp3"></audio>
-</div>
+  <!-- JS -->
+  <script src="script.js"></script>
 
-<script src="script.js"></script>
 </body>
 </html>
-
-
-
-
