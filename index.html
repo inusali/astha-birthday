@@ -1,53 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Happy Birthday Astha 🎉</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
-
 <body>
 
-  <!-- 🔐 LOGIN SCREEN -->
-  <div id="login" class="login-card">
-    <h2>🎂 Birthday Surprise</h2>
+<!-- 🔐 LOGIN -->
+<div id="login" class="login-box">
+  <h2>🎂 Birthday Surprise</h2>
+  <input type="text" id="username" placeholder="Your name">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="checkLogin()">Enter</button>
+  <p id="error"></p>
+</div>
 
-    <input type="text" id="username" placeholder="Your name">
-    <input type="password" id="password" placeholder="Password">
+<!-- 🎉 MAIN CONTENT -->
+<div id="birthday" class="hidden">
 
-    <button onclick="checkLogin()">Enter</button>
-    <p id="error" class="error"></p>
-  </div>
+  <!-- 🎵 SONG -->
+  <button class="song-btn" onclick="playSong()">▶ Play Song</button>
+  <audio id="song" src="song.mp3"></audio>
 
-  <!-- 🎉 BIRTHDAY CONTENT -->
-  <div id="birthday" class="hidden">
+  <h1>🎉 Happy Birthday</h1>
+  <h2>Astha Gupta 🎂</h2>
+  <p class="from">From your best friend ❤️<br>— Inus Ali</p>
 
-    <h1>🎉 Happy Birthday</h1>
-    <h2 class="name">Astha Gupta 🎂</h2>
-    <p class="from">From your best friend ❤️<br>— Inus Ali</p>
-   <!-- 🎵 SONG -->
-    <audio id="song" src="song.mp3"></audio>
-    <button class="play-btn" onclick="playSong()">▶ Play Song</button>
+  <!-- 🖼️ IMAGE SLIDER -->
+    <div class="slider">
+  <img src="img1.jpeg">
+  <img src="img2.jpeg">
+  <img src="img3.jpeg">
+  <img src="img4.jpeg">
+  <img src="img5.jpeg">
+</div>
 
-  </div>
- <!-- 🖼️ Photo Slider -->
-  <div class="slider">
-    <img src="img1.jpeg" class="slide active">
-    <img src="img2.jpeg" class="slide">
-    <img src="img3.jpeg" class="slide">
-    <img src="img4.jpeg" class="slide">
-    <img src="img5.jpeg" class="slide">
-  </div>
-
-    <!-- 💌 WISH TEXT -->
-    <p class="wish">
+  <!-- 💌 WISH -->
+  <p class="wish">
 May your life be filled with endless smiles, success,
 and all the happiness your heart can hold.
 
@@ -58,23 +49,19 @@ turn into reality very soon.
 
 Keep shining, keep smiling,
 and never forget how amazing you truly are 🌸
-    </p>
+  </p>
+
   <!-- 💬 COMMENTS -->
-  <div class="comments hidden" id="comments">
+  <div class="comments">
     <h3>💖 Leave a Message</h3>
-
-    <input type="text" id="cname" placeholder="Your name">
+    <input id="cname" placeholder="Your name">
     <textarea id="cmsg" placeholder="Your message"></textarea>
-
-    <button onclick="sendComment()">Send</button>
-
+    <button onclick="addComment()">Send</button>
     <div id="commentList"></div>
   </div>
 
-  <!-- JS -->
-  <script src="script.js"></script>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
-
-
